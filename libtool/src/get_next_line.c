@@ -6,7 +6,7 @@
 /*   By: faksouss <faksouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:10:03 by faksouss          #+#    #+#             */
-/*   Updated: 2023/05/20 17:37:17 by faksouss         ###   ########.fr       */
+/*   Updated: 2023/06/11 01:30:02 by faksouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ char	*gnl(int fd)
 	int			i;
 	static char	*r;
 	char		*bf;
-	char		*ln;
 
 	i = 1;
-	while (i && !ft_strchr(r, '\n'))
+	while (i)
 	{
 		bf = (char *)malloc(2);
 		i = read(fd, bf, 1);
@@ -66,5 +65,5 @@ char	*gnl(int fd)
 		}
 		r = ft_strjoin(r, bf);
 	}
-	return ((ln = take_line(r)), (r = take_rest(r)), ln);
+	return (r);
 }
